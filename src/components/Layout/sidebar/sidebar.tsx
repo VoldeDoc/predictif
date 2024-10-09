@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { NavLink } from "react-router-dom";
 import { dot, logo, medal } from "../../../../public";
-import { GrClose } from "react-icons/gr";
+import { GrAnnounce, GrClose } from "react-icons/gr";
 import Button from "@/components/Ui/Button";
 
 type Props = {
@@ -47,6 +47,11 @@ const MENU_ITEMS = [
     name: "Daily Predictivo",
     icon: CommandLineIcon,
     path: "/daily-predictivo",
+  },
+  {
+    name: "Forum",
+    icon: GrAnnounce,
+    path: "/forum",
   },
 ];
 
