@@ -8,8 +8,6 @@ import { Menu, Transition } from "@headlessui/react";
 import {
   ChevronDownIcon,
   CogIcon,
-  CreditCardIcon,
-  PencilIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
