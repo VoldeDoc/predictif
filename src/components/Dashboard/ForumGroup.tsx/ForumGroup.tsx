@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthLayout } from '@/components/Layout/layout';
-import { FaCaretDown, FaPlus } from 'react-icons/fa';
+import { FaCaretDown } from 'react-icons/fa';
 import TimelineT, { TimelinedData } from '@/components/Ui/timeline';
 import { Dropdown } from 'flowbite-react';
 import TimelineWithoutBody from '@/components/Ui/timeLineWithoutBody';
