@@ -1,34 +1,50 @@
 import React from "react";
 
-const meetupsData = [
+interface Meetup {
+  month: string;
+  day: number;
+  title: string;
+  location: string;
+  img: string;
+  types: string[];
+}
+
+interface MeetupsProps {
+  meetupsData: Meetup[];
+}
+
+
+
+export const ForumMeetupsData = [
   {
-    month: "Feb",
-    day: 7,
-    title: "UIHUT - Crunchbase Company Profile...",
-    location: "UIHUT • Sylhet, Bangladesh",
+    month: "Apr",
+    day: 10,
+    title: "Startup Pitch Night",
+    location: "Startup Hub • New York, USA",
     img: "/assets/images/dashboard/dashboard/comp.png",
-    types: ["Meetup", "Meetup", "Meetup"]
+    types: ["Pitch", "Networking", "Startup"]
   },
   {
-    month: "Mar",
-    day: 15,
-    title: "Tech Conference 2023",
-    location: "Tech Hub • San Francisco, USA",
+    month: "May",
+    day: 22,
+    title: "Developer Conference 2023",
+    location: "Dev Center • Berlin, Germany",
     img: "/assets/images/dashboard/dashboard/comp.png",
-    types: ["Conference", "Networking", "Tech"]
+    types: ["Conference", "Tech", "Developer"]
   },
   {
-    month: "Mar",
-    day: 15,
-    title: "Tech Conference 2023",
-    location: "Tech Hub • San Francisco, USA",
+    month: "May",
+    day: 22,
+    title: "Developer Conference 2023",
+    location: "Dev Center • Berlin, Germany",
     img: "/assets/images/dashboard/dashboard/comp.png",
-    types: ["Conference", "Networking", "Tech"]
+    types: ["Conference", "Tech", "Developer"]
   },
   // Add more meetups as needed
 ];
 
-const Meetups: React.FC = () => {
+
+const Meetups: React.FC<MeetupsProps> = ({ meetupsData }) => {
   return (
     <div>
       {meetupsData.map((meetup, index) => (

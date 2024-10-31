@@ -17,7 +17,7 @@ import Flatpickr from "react-flatpickr";
 import moment from "moment-timezone";
 import { RootState } from "@/context/store/rootReducer";
 import { useSelector } from "react-redux";
-import FeaturesList from "../Ui/FeaturesList";
+import FeaturesList from "../DashboardComponents/FeaturesList";
 
 const timeZone = "Africa/Lagos";
 const getGreeting = (timeZone: string) => {

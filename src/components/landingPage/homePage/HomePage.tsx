@@ -1,4 +1,4 @@
-import { AccordionBody } from '@/components/Ui/accordion';
+import { AccordionBody, accordionItems } from '@/components/Ui/accordion';
 import Typing from '@/components/Ui/typed';
 
 import LandingPageLayout from "@/components/Layout/LandingPageLayout";
@@ -8,7 +8,7 @@ import { CarouselHolder } from '@/components/Ui/carousel';
 export default function Home() {
     return (
         <LandingPageLayout>
-            <div className="container mx-auto my-40 py-16 flex flex-col items-center rounded-lg hero" style={{ backgroundColor: '#EFF7FFB2' }}>
+            <div className="container-sm mx-auto my-40 py-16 flex flex-col items-center rounded-lg hero" style={{ backgroundColor: '#EFF7FFB2' }}>
                 <h3 className="text-center bg-white w-72 mx-auto">
                     <span className="text-red-700 font-bold">o</span> Fully Integrated Point-of-sale System
                 </h3>
@@ -202,7 +202,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="w-full lg:w-1/2 lg:px-8 lg:py-8">
-                        <AccordionBody />
+                        <AccordionBody items={accordionItems}/>
                     </div>
                 </div>
             </div>

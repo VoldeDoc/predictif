@@ -19,6 +19,8 @@ import FixturesT from "./pages/dashboard/fixtures";
 import Home from "./pages/home/home_page";
 import NotFound from "./pages/home/notFound/notFound";
 import ForumT from "./pages/dashboard/forum";
+import Message_Box from "./pages/dashboard/message_box";
+import Forum_groups from "./pages/dashboard/forum_group.tsx";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -66,6 +68,8 @@ function App() {
               <Route path="/daily-predictivo" element={<Daily_predictivo/>} />
               <Route path="/fixtures" element={<FixturesT/>} />
               <Route path="/forum" element={<ForumT/>} />
+              <Route path="/messages" element={<Message_Box/>} />
+              <Route path="/groups" element={<Forum_groups/>} />
 
               {/* Ui */}
               <Route path="/ui/button" element={<ButtonT />} />

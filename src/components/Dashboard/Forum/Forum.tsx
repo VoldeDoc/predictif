@@ -4,12 +4,19 @@ import { RootState } from "@/context/store/rootReducer";
 import { FaCalendarDay } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { user } from "../../../../public"
-import NewsForum from "@/components/Ui/newsForum";
+import NewsForum, { ForumData } from "@/components/DashboardComponents/newsForum";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import Meetup from "@/components/Ui/meetups";
+import Meetups, { ForumMeetupsData } from "@/components/DashboardComponents/meetups";
+import Podcast, { PodcastData } from "@/components/DashboardComponents/podcas";
+import { useState } from "react";
 const Forum = () => {
   const userdata = useSelector((state: RootState) => state.auth?.user);
   const username = userdata?.username;
+  const [isMeetupsEnlarged, setIsMeetupsEnlarged] = useState(false);
+
+  const handleMeetupsClick = () => {
+    setIsMeetupsEnlarged(!isMeetupsEnlarged);
+  };
   return (
     <AuthLayout>
       <div className="py-4 px-6 ">
@@ -22,13 +29,14 @@ const Forum = () => {
             </p>
           </div>
           <div className="flex justify-start md:justify-end w-full md:w-auto mb-4 md:mb-10">
+          <a href="/groups">
             <Button
               text="View group"
               icon={FaCalendarDay}
               iconPosition="right"
               className="bg-red-800 text-white px-8 md:px-16 py-2 shadow-md flex items-center space-x-2"
-              onClick={() => alert('Custom Styled Button Clicked!')}
             />
+          </a>
           </div>
         </div>
 
@@ -74,27 +82,36 @@ const Forum = () => {
               <div className="w-full md:w-auto flex justify-center md:justify-end">
                 <Button
                   text="Create Post"
-                  className="bg-black-500 text-white px-4 py-2 md:px-6 md:py-3 shadow-md text-center rounded-lg w-full md:w-auto"
-                // onClick={() => alert('Custom Styled Button Clicked!')} 
+                  className="bg-slate-950   text-white px-6 py-3 rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 "
+                  onClick={() => alert('Custom Styled Button Clicked!')}
                 />
               </div>
 
             </div>
 
-            <div>
-              <NewsForum />
-
-
-            </div>
+            {!isMeetupsEnlarged && (
+              <div>
+                <NewsForum forumData={ForumData} />
+              </div>
+            )}
           </div>
 
-          <div className="w-full lg:w-4/12">
-                  <div className="bg-white rounded-lg px-4 py-4">
-                    <p  className="font-semibold">  Meetups  <ArrowRightIcon className="inline-block mr-2 w-6" /> </p>
+          <div className={`transition-transform duration-1000 transform ${isMeetupsEnlarged ? 'w-full h-screen' : 'w-full lg:w-4/12'}`}>
+            <div className="bg-white rounded-lg px-4 py-4" onClick={handleMeetupsClick}>
+              <button className="font-semibold transition-transform duration-300 transform hover:scale-105 hover:bg-blue-600 active:scale-95 rounded-lg px-2 py-2 hover:text-white">
+                Meetups <ArrowRightIcon className="inline-block mr-2 w-6" />
+              </button>
+              <Meetups meetupsData={ForumMeetupsData} />
+            </div>
 
-                     <Meetup />
-                    
-                  </div>
+            {!isMeetupsEnlarged && (
+              <div className="bg-white rounded-lg px-4 py-4 my-8">
+                <p className="font-semibold">
+                  Podcasts <ArrowRightIcon className="inline-block mr-2 w-4" />
+                </p>
+                <Podcast podcastData={PodcastData} />
+              </div>
+            )}
           </div>
         </div>
 
