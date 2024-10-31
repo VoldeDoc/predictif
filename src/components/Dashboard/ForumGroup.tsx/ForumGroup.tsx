@@ -64,5 +64,4 @@ const ForumGroup: React.FC = () => {
     </AuthLayout>
   );
 };
-
 export default ForumGroup;
